@@ -3,9 +3,9 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Jonathan Amiez"]
   spec.email         = ["jonathan.amiez@gmail.com"]
-  spec.description   = %q{TODO: Add a description}
-  spec.summary       = %q{TODO: Add a summary}
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = "Nagios interaction with Lita"
+  spec.summary       = "Receive notification and send ACK/recheck, etc. to Nagios"
+  spec.homepage      = "https://github.com/josqu4red/lita-nagios"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
