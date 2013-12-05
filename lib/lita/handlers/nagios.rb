@@ -11,7 +11,6 @@ module Lita
       http.post "/lita/nagios", :receive
 
       def receive(request, response)
-        p request
         if request.params.has_key?("type")
           notif_type = request.params["type"].to_sym
           unless respond_to?(notif_type, true)
