@@ -1,23 +1,23 @@
 define command {
   command_name notify-host-by-bot
   command_line /usr/bin/curl --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
-                             --data-urlencode "room=#chan" \
+                             --data-urlencode "room=#chan" \                            # CHANGEME
                              --data-urlencode "type=host" \
-                             --data-urlencode "host="$HOSTNAME$" \
-                             --data-urlencode "output="$HOSTOUTPUT$" \
-                             --data-urlencode "state="$HOSTSTATE$" \
+                             --data-urlencode "hostname="$HOSTNAME$" \
+                             --data-urlencode "hostoutput="$HOSTOUTPUT$" \
+                             --data-urlencode "hoststate="$HOSTSTATE$" \
                              --data-urlencode "notificationtype=$NOTIFICATIONTYPE$"
 }
 
 define command {
   command_name notify-service-by-bot
   command_line /usr/bin/curl --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
-                             --data-urlencode "room=#chan" \
+                             --data-urlencode "room=#chan" \                            # CHANGEME
                              --data-urlencode "type=service" \
-                             --data-urlencode "host=$HOSTALIAS$" \
-                             --data-urlencode "output=$SERVICEOUTPUT$" \
-                             --data-urlencode "description=$SERVICEDESC$" \
-                             --data-urlencode "state=$SERVICESTATE$" \
+                             --data-urlencode "hostalias=$HOSTALIAS$" \
+                             --data-urlencode "serviceoutput=$SERVICEOUTPUT$" \
+                             --data-urlencode "servicedesc=$SERVICEDESC$" \
+                             --data-urlencode "servicestate=$SERVICESTATE$" \
                              --data-urlencode "notificationtype=$NOTIFICATIONTYPE$"
 }
 
@@ -30,5 +30,5 @@ define contact{
   host_notification_options     d,r
   service_notification_commands notify-service-by-bot
   host_notification_commands    notify-host-by-bot
-  address1                      http://lita.example.com:8080/lita/nagios
+  address1                      http://lita.example.com:8080/nagios/alerts              # CHANGEME
 }
