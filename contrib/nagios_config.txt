@@ -1,6 +1,6 @@
 define command {
   command_name notify-host-by-bot
-  command_line /usr/bin/curl --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
+  command_line /usr/bin/curl --request POST --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
                              --data-urlencode "room=#chan" \
                              --data-urlencode "type=host" \
                              --data-urlencode "host="$HOSTNAME$" \
@@ -11,7 +11,7 @@ define command {
 
 define command {
   command_name notify-service-by-bot
-  command_line /usr/bin/curl --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
+  command_line /usr/bin/curl --request POST --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
                              --data-urlencode "room=#chan" \
                              --data-urlencode "type=service" \
                              --data-urlencode "host=$HOSTALIAS$" \
