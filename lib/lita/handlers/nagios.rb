@@ -30,7 +30,7 @@ module Lita
 
         message = send(notif_type, request.params)
 
-        ack = request.params["notificationtype"] == "ACKNOWLEDGEMENT" ? irc_color("[ACK] ", :light_green) : ""
+        ack = request.params["notificationtype"] == "ACKNOWLEDGEMENT" ? "[ACK] " : ""
 
         target = Source.new(room: room)
         robot.send_message(target, "nagios: #{ack}#{message}")
@@ -39,10 +39,6 @@ module Lita
       end
 
       private
-
-      def irc_color(str, fg, bg=nil)
-        str
-      end
 
       def host(params)
         case params["state"]
@@ -53,7 +49,7 @@ module Lita
         when "UNREACHABLE"
           color = :orange
         end
-        status = irc_color(params["state"], color)
+        status = params["state"]
 
         message = "#{params["host"]} is #{status}: #{params["output"]}"
       end
@@ -69,7 +65,7 @@ module Lita
         when "UNKNOWN"
           color = :orange
         end
-        status = irc_color(params["state"], color)
+        status = params["state"]
 
         message = "#{params["host"]}:#{params["description"]} is #{status}: #{params["output"]}"
       end
