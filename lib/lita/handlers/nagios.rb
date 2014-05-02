@@ -8,7 +8,7 @@ module Lita
         config.default_room = nil
       end
 
-      http.post "/lita/nagios", :receive
+      http.post "/nagios", :receive
 
       def receive(request, response)
         if request.params.has_key?("type")
