@@ -22,8 +22,8 @@ module Lita
 
         if request.params.has_key?("room")
           room = request.params["room"]
-        elsif Lita.config.handlers.nagios.default_room
-          room = Lita.config.handlers.nagios.default_room
+        elsif config.default_room
+          room = config.default_room
         else
           raise "Room must be defined. Either fix your command or specify a default room ('config.handlers.nagios.default_room')"
         end
