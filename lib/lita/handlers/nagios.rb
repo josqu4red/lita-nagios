@@ -8,7 +8,7 @@ module Lita
         config.default_room = nil
       end
 
-      http.post "/nagios", :receive
+      http.post "/nagios/notifications", :receive
 
       def receive(request, response)
         if request.params.has_key?("type")
@@ -30,10 +30,8 @@ module Lita
 
         message = send(notif_type, request.params)
 
-        ack = request.params["notificationtype"] == "ACKNOWLEDGEMENT" ? "[ACK] " : ""
-
         target = Source.new(room: room)
-        robot.send_message(target, "nagios: #{ack}#{message}")
+        robot.send_message(target, "nagios: #{message}")
       rescue Exception => e
         Lita.logger.error(e)
       end

@@ -30,5 +30,5 @@ define contact{
   host_notification_options     d,r
   service_notification_commands notify-service-by-bot
   host_notification_commands    notify-host-by-bot
-  address1                      http://lita.example.com:8080/nagios
+  address1                      http://lita.example.com/nagios/notifications
 }
