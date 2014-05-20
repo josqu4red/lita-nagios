@@ -65,11 +65,13 @@ An example Nagios configuration (contact, commands) to send alerts to channels i
 
 ### Send commands to Nagios
 
+```
 lita: nagios enable notif(ication(s)) <-h | --host HOST> [-s | --service SERVICE] - Enable notifications for given host/service
 lita: nagios disable notif(ication(s)) <-h | --host HOST> [-s | --service SERVICE] - Disable notifications for given host/service
 lita: nagios recheck <-h | --host HOST> [-s | --service SERVICE] - Reschedule check for given host/service
 lita: nagios ack(nowledge) <-h | --host HOST> [-s | --service SERVICE] [-m | --message MESSAGE] - Acknowledge host/service problem with optional message
 lita: nagios (fixed|flexible) downtime <-d | --duration DURATION > <-h | --host HOST> [-s | --service SERVICE] - Schedule downtime for a host/service with duration units in (m, h, d, default to seconds)
+```
 
 ## License
 
