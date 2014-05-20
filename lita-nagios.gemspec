@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-nagios"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Jonathan Amiez"]
   spec.email         = ["jonathan.amiez@gmail.com"]
   spec.description   = "Nagios interaction with Lita"
