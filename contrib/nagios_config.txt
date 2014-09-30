@@ -3,9 +3,9 @@ define command {
   command_line /usr/bin/curl --request POST --connect-timeout 1 --max-time 2 $CONTACTADDRESS1$ \
                              --data-urlencode "room=#chan" \
                              --data-urlencode "type=host" \
-                             --data-urlencode "host="$HOSTNAME$" \
-                             --data-urlencode "output="$HOSTOUTPUT$" \
-                             --data-urlencode "state="$HOSTSTATE$" \
+                             --data-urlencode "host=$HOSTNAME$" \
+                             --data-urlencode "output=$HOSTOUTPUT$" \
+                             --data-urlencode "state=$HOSTSTATE$" \
                              --data-urlencode "notificationtype=$NOTIFICATIONTYPE$"
 }
 
@@ -23,7 +23,7 @@ define command {
 
 define contact{
   contact_name                  bot
-  alias                         Lita IRC
+  alias                         Lita
   service_notification_period   24x7
   host_notification_period      24x7
   service_notification_options  w,u,c,r
