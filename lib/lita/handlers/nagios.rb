@@ -2,24 +2,22 @@ module Lita
   module Handlers
     class Nagios < Handler
 
-      def self.default_config(config)
-        config.default_room = nil
-        config.cgi = nil
-        config.user = nil
-        config.pass = nil
-        config.version = 3
-        config.time_format = "iso8601"
-        config.verify_ssl = true
-      end
+      config :default_room
+      config :cgi, default: "http://nagios.example.com/cgi-bin/nagios3"
+      config :user, default: "nagiosuser"
+      config :pass, default: "nagiospass"
+      config :version, default: 3
+      config :time_format, default: "iso8601"
+      config :verify_ssl, default: true
 
       def initialize(robot)
         @site = NagiosHarder::Site.new(
-          config.cgi,
-          config.user,
-          config.pass,
-          config.version,
-          config.time_format,
-          config.verify_ssl
+          robot.config.handlers.nagios.cgi,
+          robot.config.handlers.nagios.user,
+          robot.config.handlers.nagios.pass,
+          robot.config.handlers.nagios.version,
+          robot.config.handlers.nagios.time_format,
+          robot.config.handlers.nagios.verify_ssl
         )
         super(robot)
       end
