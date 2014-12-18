@@ -28,7 +28,7 @@ module Lita
 
       route /^nagios\s+(?<action>enable|disable)\s+notif(ication(s)?)?/, :toggle_notifications,
         command: true,
-        restrict_to: ["admins"],
+        restrict_to: ["nagios_admins"],
         kwargs: {
           host: { short: "h" },
           service: { short: "s" }
@@ -50,7 +50,7 @@ module Lita
 
       route /^nagios\s+recheck/, :recheck,
         command: true,
-        restrict_to: ["admins"],
+        restrict_to: ["nagios_admins"],
         kwargs: {
           host: { short: "h" },
           service: { short: "s" }
@@ -77,7 +77,7 @@ module Lita
 
       route /^nagios\s+ack(nowledge)?/, :acknowledge,
         command: true,
-        restrict_to: ["admins"],
+        restrict_to: ["nagios_admins"],
         kwargs: {
           host: { short: "h" },
           service: { short: "s" },
@@ -108,7 +108,7 @@ module Lita
 
       route /^nagios(\s+(?<type>fixed|flexible))?\s+downtime/, :schedule_downtime,
         command: true,
-        restrict_to: ["admins"],
+        restrict_to: ["nagios_admins"],
         kwargs: {
           host: { short: "h" },
           service: { short: "s" },
